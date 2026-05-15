@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil — Mochamad Rizki Bahtiar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --cream: #f5f0e8;
+        --ink: #1a1714;
+        --muted: #6b6560;
+        --accent: #9b041b;
+        --accent-light: #f0d9cc;
+        --border: rgba(26, 23, 20, 0.12);
+        --card: #fffdf9;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background-color: var(--cream);
+        color: var(--ink);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 3rem;
+        background: rgba(245, 240, 232, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 80px;
+      }
+      .hero-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem 3rem 4rem 5rem;
+      }
+      .hero-eyebrow {
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 2rem;
+        height: 1px;
+        background: var(--accent);
+      }
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 5vw, 4.2rem);
+        line-height: 1.1;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        color: var(--ink);
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+        color: var(--muted);
+        font-weight: 300;
+        letter-spacing: 0.04em;
+        margin-bottom: 2rem;
+      }
+      .hero-desc {
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--muted);
+        max-width: 440px;
+        margin-bottom: 3rem;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--ink);
+        color: var(--cream);
+        padding: 0.85rem 2rem;
+        border: none;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        display: inline-block;
+      }
+      .btn-primary:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--ink);
+        padding: 0.85rem 2rem;
+        border: 1px solid var(--ink);
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          transform 0.15s;
+        display: inline-block;
+      }
+      .btn-outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      /* HERO RIGHT – PHOTO */
+      .hero-right {
+        position: relative;
+        overflow: hidden;
+      }
+      .photo-frame {
+        position: absolute;
+        inset: 80px 3rem 3rem 0;
+        background: var(--accent-light);
+        overflow: hidden;
+      }
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(20%);
+        transition: filter 0.4s;
+      }
+      .photo-frame:hover img {
+        filter: grayscale(0%);
+      }
+      .photo-deco {
+        position: absolute;
+        bottom: 2.5rem;
+        left: -1.5rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 1.25rem 1.5rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        z-index: 2;
+      }
+      .photo-deco-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .photo-deco-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      /* STATS BAR */
+      .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: var(--card);
+      }
+      .stat-item {
+        padding: 2.5rem 2.5rem;
+        border-right: 1px solid var(--border);
+        transition: background 0.2s;
+      }
+      .stat-item:last-child {
+        border-right: none;
+      }
+      .stat-item:hover {
+        background: var(--accent-light);
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 0.5rem;
+      }
+
+      /* ABOUT */
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 4rem;
+        padding: 7rem 5rem;
+        align-items: start;
+      }
+      .section-tag {
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .section-tag::before {
+        content: "";
+        display: inline-block;
+        width: 1.5rem;
+        height: 1px;
+        background: var(--accent);
+      }
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .section-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .about-right p {
+        font-size: 1rem;
+        line-height: 1.85;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+      .skill-tag {
+        padding: 0.65rem 1rem;
+        border: 1px solid var(--border);
+        font-size: 0.85rem;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+        background: var(--cream);
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .skill-tag::before {
+        content: "→";
+        color: var(--accent);
+        font-size: 0.75rem;
+      }
+      .skill-tag:hover {
+        border-color: var(--accent);
+        background: var(--accent-light);
+      }
+
+      /* PORTFOLIO */
+      .portfolio {
+        padding: 0 5rem 7rem;
+      }
+      .portfolio-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 3rem;
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .project-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      }
+      .project-thumb {
+        height: 200px;
+        background: var(--accent-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        color: var(--accent);
+        position: relative;
+        overflow: hidden;
+      }
+      .project-thumb-overlay {
+        position: absolute;
+        inset: 0;
+        background: var(--ink);
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--cream);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .project-card:hover .project-thumb-overlay {
+        opacity: 0.85;
+      }
+      .project-info {
+        padding: 1.5rem;
+      }
+      .project-cat {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .project-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        color: var(--ink);
+      }
+      .project-desc {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 0.5rem;
+        line-height: 1.6;
+      }
+
+      /* CONTACT */
+      .contact {
+        background: var(--ink);
+        color: var(--cream);
+        padding: 7rem 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+      .contact .section-tag {
+        color: var(--accent-light);
+      }
+      .contact .section-tag::before {
+        background: var(--accent-light);
+      }
+      .contact .section-title {
+        color: var(--cream);
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .form-group label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(245, 240, 232, 0.5);
+      }
+      .form-group input,
+      .form-group textarea {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(245, 240, 232, 0.15);
+        color: var(--cream);
+        padding: 0.9rem 1rem;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        resize: none;
+        transition: border-color 0.2s;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--accent);
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(245, 240, 232, 0.3);
+      }
+      .btn-send {
+        background: var(--accent);
+        color: var(--cream);
+        padding: 1rem 2.5rem;
+        border: none;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        align-self: flex-start;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .btn-send:hover {
+        background: #a8502a;
+        transform: translateY(-2px);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 1rem;
+      }
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+      .ci-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(245, 240, 232, 0.4);
+      }
+      .ci-value {
+        font-size: 1rem;
+        color: var(--cream);
+      }
+      .social-row {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .social-btn {
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(245, 240, 232, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--cream);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .social-btn:hover {
+        border-color: var(--accent);
+        background: var(--accent);
+      }
+
+      /* FOOTER */
+      footer {
+        background: #111;
+        color: rgba(245, 240, 232, 0.4);
+        text-align: center;
+        padding: 1.75rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+      }
+
+      /* ANIMATION */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-eyebrow {
+        animation: fadeUp 0.6s ease both;
+      }
+      .hero-title {
+        animation: fadeUp 0.6s 0.1s ease both;
+      }
+      .hero-subtitle {
+        animation: fadeUp 0.6s 0.18s ease both;
+      }
+      .hero-desc {
+        animation: fadeUp 0.6s 0.26s ease both;
+      }
+      .hero-cta {
+        animation: fadeUp 0.6s 0.34s ease both;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        nav {
+          padding: 1rem 1.5rem;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .hero-left {
+          padding: 6rem 2rem 3rem;
+        }
+        .hero-right {
+          display: none;
+        }
+        .stats-bar {
+          grid-template-columns: 1fr;
+        }
+        .stat-item {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .about {
+          grid-template-columns: 1fr;
+          padding: 4rem 2rem;
+          gap: 2rem;
+        }
+        .portfolio {
+          padding: 0 2rem 4rem;
+        }
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact {
+          grid-template-columns: 1fr;
+          padding: 4rem 2rem;
+          gap: 3rem;
+        }
+        .portfolio-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGASI -->
+    <nav>
+      <a class="nav-logo" href="#">Mochamad Rizki Bahtiar</a>
+      <ul class="nav-links">
+        <li><a href="#tentang">Tentang</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Teknisi B2C Sektor Klojen</p>
+        <h1 class="hero-title">
+          Halo, Saya<br /><em>Mochamad Rizki Bahtiar</em>
+        </h1>
+        <p class="hero-subtitle">Berbasis di Malang, Jawa Timur</p>
+        <p class="hero-desc">
+          Sebagai Teknisi B2C Sektor Klojen berpengalaman dalam maintenance, dan
+          troubleshooting jaringan internet, TV, dan telepon. Mengutamakan
+          pelayanan cepat, tepat, dan kepuasan pelanggan.
+        </p>
+        <div class="hero-cta">
+          <a
+            href="https://wa.me/6285156656602"
+            target="_blank"
+            class="btn-outline"
+            >Hubungi Saya</a
+          >
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="photo-frame">
+          <!-- Ganti src dengan URL foto Anda -->
+          <img src="fotoku.jpg" alt="Foto Profil Mochamad Rizki Bahtiar" />
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+      <div class="about-left">
+        <p class="section-tag">Tentang Saya</p>
+        <h2 class="section-title">
+          Teknisi Profesional<br /><em>dan disiplin</em>
+        </h2>
+      </div>
+      <div class="about-right">
+        <p>
+          Saya adalah seorang teknisi maintenance Telkom IndiHome yang memiliki
+          semangat tinggi dalam memastikan kualitas layanan jaringan dan
+          kepuasan pelanggan. Berpengalaman dalam penanganan gangguan, perawatan
+          jaringan, instalasi, serta troubleshooting layanan internet, TV, dan
+          telepon. Dengan pengalaman kerja di lapangan, saya terbiasa bekerja
+          secara cepat, tepat, dan profesional dalam menangani berbagai kendala
+          teknis. Saya percaya bahwa pelayanan yang baik dan koneksi yang stabil
+          adalah bagian penting dalam memberikan pengalaman terbaik bagi
+          pelanggan.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>&copy; 2026 Mochamad Rizki Bahtiar — Dibuat di Malang</footer>
+  </body>
+</html>
