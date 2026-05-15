@@ -79,7 +79,7 @@
         color: var(--accent);
       }
 
-      /* HERO */
+      /* HERO — DESKTOP */
       .hero {
         min-height: 100vh;
         display: grid;
@@ -141,27 +141,6 @@
         gap: 1rem;
         flex-wrap: wrap;
       }
-      .btn-primary {
-        background: var(--ink);
-        color: var(--cream);
-        padding: 0.85rem 2rem;
-        border: none;
-        cursor: pointer;
-        font-family: "DM Sans", sans-serif;
-        font-size: 0.85rem;
-        font-weight: 500;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        text-decoration: none;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-        display: inline-block;
-      }
-      .btn-primary:hover {
-        background: var(--accent);
-        transform: translateY(-2px);
-      }
       .btn-outline {
         background: transparent;
         color: var(--ink);
@@ -186,7 +165,7 @@
         transform: translateY(-2px);
       }
 
-      /* HERO RIGHT – PHOTO */
+      /* HERO RIGHT – PHOTO (desktop) */
       .hero-right {
         position: relative;
         overflow: hidden;
@@ -201,68 +180,17 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center top;
         filter: grayscale(20%);
         transition: filter 0.4s;
       }
       .photo-frame:hover img {
         filter: grayscale(0%);
       }
-      .photo-deco {
-        position: absolute;
-        bottom: 2.5rem;
-        left: -1.5rem;
-        background: var(--card);
-        border: 1px solid var(--border);
-        padding: 1.25rem 1.5rem;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-        z-index: 2;
-      }
-      .photo-deco-num {
-        font-family: "Playfair Display", serif;
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--accent);
-        line-height: 1;
-      }
-      .photo-deco-label {
-        font-size: 0.75rem;
-        color: var(--muted);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
 
-      /* STATS BAR */
-      .stats-bar {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        background: var(--card);
-      }
-      .stat-item {
-        padding: 2.5rem 2.5rem;
-        border-right: 1px solid var(--border);
-        transition: background 0.2s;
-      }
-      .stat-item:last-child {
-        border-right: none;
-      }
-      .stat-item:hover {
-        background: var(--accent-light);
-      }
-      .stat-num {
-        font-family: "Playfair Display", serif;
-        font-size: 2.8rem;
-        font-weight: 700;
-        color: var(--ink);
-        line-height: 1;
-      }
-      .stat-label {
-        font-size: 0.8rem;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-top: 0.5rem;
+      /* FOTO MOBILE — ditampilkan khusus di mobile */
+      .photo-mobile {
+        display: none;
       }
 
       /* ABOUT */
@@ -308,235 +236,6 @@
         color: var(--muted);
         margin-bottom: 1.5rem;
       }
-      .skills-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.75rem;
-        margin-top: 2rem;
-      }
-      .skill-tag {
-        padding: 0.65rem 1rem;
-        border: 1px solid var(--border);
-        font-size: 0.85rem;
-        color: var(--ink);
-        letter-spacing: 0.02em;
-        background: var(--cream);
-        transition:
-          border-color 0.2s,
-          background 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .skill-tag::before {
-        content: "→";
-        color: var(--accent);
-        font-size: 0.75rem;
-      }
-      .skill-tag:hover {
-        border-color: var(--accent);
-        background: var(--accent-light);
-      }
-
-      /* PORTFOLIO */
-      .portfolio {
-        padding: 0 5rem 7rem;
-      }
-      .portfolio-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 3rem;
-      }
-      .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-      .project-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        overflow: hidden;
-        cursor: pointer;
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
-      }
-      .project-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-      }
-      .project-thumb {
-        height: 200px;
-        background: var(--accent-light);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Playfair Display", serif;
-        font-size: 3rem;
-        color: var(--accent);
-        position: relative;
-        overflow: hidden;
-      }
-      .project-thumb-overlay {
-        position: absolute;
-        inset: 0;
-        background: var(--ink);
-        opacity: 0;
-        transition: opacity 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--cream);
-        font-family: "DM Sans", sans-serif;
-        font-size: 0.85rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      .project-card:hover .project-thumb-overlay {
-        opacity: 0.85;
-      }
-      .project-info {
-        padding: 1.5rem;
-      }
-      .project-cat {
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--accent);
-        margin-bottom: 0.5rem;
-      }
-      .project-name {
-        font-family: "Playfair Display", serif;
-        font-size: 1.2rem;
-        color: var(--ink);
-      }
-      .project-desc {
-        font-size: 0.85rem;
-        color: var(--muted);
-        margin-top: 0.5rem;
-        line-height: 1.6;
-      }
-
-      /* CONTACT */
-      .contact {
-        background: var(--ink);
-        color: var(--cream);
-        padding: 7rem 5rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-      }
-      .contact .section-tag {
-        color: var(--accent-light);
-      }
-      .contact .section-tag::before {
-        background: var(--accent-light);
-      }
-      .contact .section-title {
-        color: var(--cream);
-      }
-      .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-      }
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .form-group label {
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: rgba(245, 240, 232, 0.5);
-      }
-      .form-group input,
-      .form-group textarea {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(245, 240, 232, 0.15);
-        color: var(--cream);
-        padding: 0.9rem 1rem;
-        font-family: "DM Sans", sans-serif;
-        font-size: 0.95rem;
-        outline: none;
-        resize: none;
-        transition: border-color 0.2s;
-      }
-      .form-group input:focus,
-      .form-group textarea:focus {
-        border-color: var(--accent);
-      }
-      .form-group input::placeholder,
-      .form-group textarea::placeholder {
-        color: rgba(245, 240, 232, 0.3);
-      }
-      .btn-send {
-        background: var(--accent);
-        color: var(--cream);
-        padding: 1rem 2.5rem;
-        border: none;
-        cursor: pointer;
-        font-family: "DM Sans", sans-serif;
-        font-size: 0.85rem;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        align-self: flex-start;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-      }
-      .btn-send:hover {
-        background: #a8502a;
-        transform: translateY(-2px);
-      }
-
-      .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        padding-top: 1rem;
-      }
-      .contact-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-      }
-      .ci-label {
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: rgba(245, 240, 232, 0.4);
-      }
-      .ci-value {
-        font-size: 1rem;
-        color: var(--cream);
-      }
-      .social-row {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1.5rem;
-      }
-      .social-btn {
-        width: 42px;
-        height: 42px;
-        border: 1px solid rgba(245, 240, 232, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--cream);
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition:
-          border-color 0.2s,
-          background 0.2s;
-      }
-      .social-btn:hover {
-        border-color: var(--accent);
-        background: var(--accent);
-      }
 
       /* FOOTER */
       footer {
@@ -575,48 +274,62 @@
         animation: fadeUp 0.6s 0.34s ease both;
       }
 
-      /* RESPONSIVE */
+      /* ================================
+         RESPONSIVE MOBILE
+      ================================ */
       @media (max-width: 900px) {
         nav {
           padding: 1rem 1.5rem;
         }
+        .nav-logo {
+          font-size: 0.9rem;
+        }
+
+        /* Hero jadi 1 kolom, foto di bawah teks */
         .hero {
           grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
           min-height: auto;
+          padding-top: 70px;
         }
         .hero-left {
-          padding: 6rem 2rem 3rem;
+          padding: 2.5rem 1.5rem 1.5rem;
+          order: 1;
         }
+
+        /* Sembunyikan hero-right versi desktop (absolute positioning) */
         .hero-right {
           display: none;
         }
-        .stats-bar {
-          grid-template-columns: 1fr;
+
+        /* Tampilkan foto mobile */
+        .photo-mobile {
+          display: block;
+          order: 2;
+          width: 100%;
+          height: 320px;
+          overflow: hidden;
+          background: var(--accent-light);
         }
-        .stat-item {
-          border-right: none;
-          border-bottom: 1px solid var(--border);
+        .photo-mobile img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          filter: grayscale(20%);
         }
+
+        .hero-title {
+          font-size: 2.2rem;
+        }
+        .hero-desc {
+          margin-bottom: 2rem;
+        }
+
         .about {
           grid-template-columns: 1fr;
-          padding: 4rem 2rem;
-          gap: 2rem;
-        }
-        .portfolio {
-          padding: 0 2rem 4rem;
-        }
-        .portfolio-grid {
-          grid-template-columns: 1fr;
-        }
-        .contact {
-          grid-template-columns: 1fr;
-          padding: 4rem 2rem;
-          gap: 3rem;
-        }
-        .portfolio-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 1rem;
+          padding: 3rem 1.5rem;
+          gap: 1.5rem;
         }
       }
     </style>
@@ -652,13 +365,19 @@
           >
         </div>
       </div>
+
+      <!-- Foto versi DESKTOP -->
       <div class="hero-right">
         <div class="photo-frame">
-          <!-- Ganti src dengan URL foto Anda -->
           <img src="fotoku.jpg" alt="Foto Profil Mochamad Rizki Bahtiar" />
         </div>
       </div>
     </section>
+
+    <!-- Foto versi MOBILE (di luar .hero agar tidak kena display:none) -->
+    <div class="photo-mobile">
+      <img src="fotoku.jpg" alt="Foto Profil Mochamad Rizki Bahtiar" />
+    </div>
 
     <!-- TENTANG -->
     <section class="about" id="tentang">
